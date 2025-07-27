@@ -1,0 +1,491 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} /* Resets padding and margin for all elements */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap'); /* Importing the Space Grotesk font */
+
+@media screen and (min-width: 1044px) { /* For desktop devices */
+
+.side-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 38%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+} /* Positions the sidebar image on the left side of the page */
+
+.front-card {
+    position: absolute;
+    top: 23%;
+    left: 16%;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+} /* Positions the front card on the page */
+
+.card-logo {
+    position: absolute;
+    top: 28%;
+    left: 18%;
+    width: 6%;
+    display: flex;
+    justify-content: center;
+} /* Positions the card logo on the front card */
+
+.back-card {
+    position: absolute;
+    top: 68%;
+    left: 24%;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+} /* Positions the back card on the page */
+
+
+/* Styling the form */
+
+.container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    right: 100px;
+    top: 220px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 20px;
+    letter-spacing: 2px;
+    color: hsl(278, 68%, 11%);
+} /* General styling for the main container */
+
+.cardholder-name {
+    border-radius: 5px;
+    border: 1px solid hsl(270, 3%, 87%);
+    width: 300px;
+    height: 35px;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 7px;
+    font-size: 15px;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 30px;
+} /* Styles the cardholder name input field */
+
+.card-number {
+    border-radius: 5px;
+    border: 1px solid hsl(270, 3%, 87%);
+    width: 300px;
+    height: 35px;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 7px;
+    font-size: 15px;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 30px;
+} /* Styles the card number input field */
+
+.month, .year, .cvc {
+    border-radius: 5px;
+    border: 1px solid hsl(270, 3%, 87%);
+    height: 35px;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 7px;
+    font-size: 15px;
+} /* Styles the month, year, and CVC input fields */
+
+.confirm-button {
+    display: block;
+    width: 300px;
+    margin-top: 20px;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    left: 100px;
+} /* Styles the confirm button */
+
+.confirm-button:hover {
+    background-color: hsl(278, 73%, 29%);
+} /* Hover effect for the confirm button */
+
+.confirm-button:active {
+    background-color: hsl(290, 100%, 14%);
+    transform: scale(0.97);
+} /* Active (click) effect for the confirm button */
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    width: 300px; /* same width as .date-inputs */
+    margin-bottom: 5px;
+} /* Styles the container holding the titles for month/year and CVC inputs */
+
+.date-inputs {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+} /* Styles the container holding date and CVC input fields */
+
+.date {
+    display: flex;
+    gap: 10px; /* Space between MM and YY */
+} /* Styles the container holding month and year inputs */
+
+.month, .year {
+    width: 80px;
+} /* Sets the width for month and year inputs */
+
+.cvc {
+    width: 100px;
+} /* Sets the width for the CVC input */
+
+.required,
+.span-required {
+    display: block;
+} /* Displays required messages as block elements */
+
+.span-required {
+    font-size: 12px;
+    margin: 3px 0 0 1px;
+    color: red;
+    display: none;
+} /* Styles the error message spans and hides them by default */
+
+.cardNumber-display {
+    position: absolute;
+    top: 20%;
+    left: 27.6%;
+    color: hsl(270, 3%, 87%);
+    font-size: 25px;
+} /* Displays the card number in real time on the card */
+
+.cardHolder-display {
+    position: absolute;
+    top: 36%;
+    left: 27.6%;
+    color: hsl(270, 3%, 87%);
+    font-size: 14px;
+} /* Displays the cardholder name in real time on the card */
+
+.month-display {
+    position: absolute;
+    top: 36%;
+    left: 48%;
+    color: hsl(270, 3%, 87%);
+    font-size: 14px;
+} /* Displays the card expiration month in real time */
+
+.slash {
+    position: absolute;
+    top: 36%;
+    left: 49.8%;
+    color: hsl(270, 3%, 87%);
+    font-size: 12px;
+} /* Adds the slash between month and year */
+
+.year-display {
+    position: absolute;
+    top: 36%;
+    left: 50.5%;
+    color: hsl(270, 3%, 87%);
+    font-size: 14px;
+} /* Displays the card expiration year in real time */
+
+.cvc-display {
+    position: absolute;
+    top: 92%;
+    left: 57.5%;
+    color: hsl(270, 3%, 87%);
+    font-size: 14px;
+} /* Displays the CVC in real time */
+
+.thanks-container {
+    display: none;
+} /* Hides the thank-you container until triggered by JavaScript */
+
+} /* END of desktop media query */
+
+@media screen and (max-width: 785px) {  /* For mobile devices */
+
+.side-image {
+    position: absolute;
+    top: 0;
+    height: 370px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+} /* Places the side image at the top of the page for mobile devices */
+
+.front-card {
+    position: absolute;
+    top: 189px;
+    left: 5%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+} /* Positions the front card for mobile devices */
+
+.back-card {
+    position: relative;
+    top: 50px;
+    width: 70%;
+    left: 25%;
+    z-index: 1;
+} /* Positions the back card for mobile devices */
+
+.card-logo {
+    position: absolute;
+    top: 220px;
+    left: 10%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+} /* Positions the card logo on the front card for mobile devices */
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 450px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 23px;
+    padding: 20px;
+    letter-spacing: 2px;
+    color: hsl(278, 68%, 11%);
+    flex-direction: column;
+    align-items: center;
+} /* Adjusts the form container for mobile devices */
+
+.cardholder-name {
+    border-radius: 7px;
+    border: 1px solid hsl(270, 3%, 87%);
+    width: 90%;
+    height: 50px;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 7px;
+    font-size: 15px;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 30px;
+} /* Styles the cardholder name input for mobile */
+
+.card-number {
+    border-radius: 7px;
+    border: 1px solid hsl(270, 3%, 87%);
+    width: 90%;
+    height: 50px;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 7px;
+    font-size: 15px;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 30px;
+} /* Styles the card number input for mobile */
+
+.month, .year {
+    border-radius: 7px;
+    border: 1px solid hsl(270, 3%, 87%);
+    height: 50px;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 7px;
+    width: 20%;
+    font-size: 15px;
+    margin-top: 10px;
+} /* Styles the month and year inputs for mobile */
+
+.cvc {
+    border-radius: 7px;
+    border: 1px solid hsl(270, 3%, 87%);
+    height: 50px;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 7px;
+    width: 45%;
+    font-size: 15px;
+    margin-left: 10px;
+    display: block;
+} /* Styles the CVC input for mobile */
+
+.date-inputs{
+    display:flex;
+    gap: 10px;
+    align-items: center;
+}
+.confirm-button {
+    display: block;
+    width: 90%;
+    margin-top: 20px;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+} /* Styles the confirm button for mobile */
+
+.confirm-button:active {
+    background-color: hsl(278, 100%, 20%);
+    transform: scale(0.97);
+} /* Active (click) effect for the confirm button on mobile */
+
+.confirm-button:hover {
+    background-color: hsl(278, 73%, 29%);
+} /* Hover effect for the confirm button on mobile */
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 5px;
+} /* Styles the titles for month, year, and CVC inputs */
+
+.span-required {
+    font-size: 12px;
+    margin: 3px 0 0 1px;
+    color: red;
+    display: none;
+} /* Styles the error messages */
+
+.thanks-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 500px;
+} /* Styles the thank-you container for mobile */
+
+.icon-complete {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    top: 20px;
+    left: 43%;
+    display: flex;
+    z-index: 5;
+} /* Positions the completion icon */
+
+.thank-you {
+    position: absolute;
+    font-size: 40px;
+    top: 160px;
+    display: flex;
+    color: hsl(278, 68%, 11%);
+    left: 190px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 2px;
+    display: flex;
+} /* Styles the thank-you message */
+
+.addicion {
+    position: absolute;
+    font-size: 23px;
+    color: gray;
+    top: 240px;
+    left: 140px;
+    display: flex;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 80px;
+} /* Styles the additional confirmation message */
+
+.button {
+    display: block;
+    width: 400px;
+    margin-top: 20px;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 56px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    left: 100px;
+    top: 230px;
+    margin-bottom: 80px;
+} /* Styles the continue button on the thank-you screen */
+
+.button:hover {
+    background-color: hsl(278, 73%, 29%);
+} /* Hover effect for the continue button */
+
+.button:active {
+    background-color: hsl(290, 100%, 14%);
+    transform: scale(0.97);
+} /* Active (click) effect for the continue button */
+
+.cardNumber-display {
+    position: absolute;
+    top: -130px;
+    left: 10%;
+    color: hsl(270, 3%, 87%);
+    font-size: 25px;
+    z-index: 5;
+} /* Displays the card number in real time on the mobile card */
+
+.cardHolder-display {
+    position: absolute;
+    top: -60px;
+    left: 10%;
+    color: hsl(270, 3%, 87%);
+    font-size: 14px;
+    z-index: 5;
+} /* Displays the cardholder name in real time on the mobile card */
+
+.month-display {
+    position: absolute;
+    top: -13%;
+    left: 58%;
+    color: hsl(270, 3%, 87%);
+    font-size: 14px;
+    z-index: 5;
+} /* Displays the card expiration month in real time on mobile */
+
+.slash {
+    position: absolute;
+    top: -13%;
+    left: 62%;
+    color: hsl(270, 3%, 87%);
+    font-size: 12px;
+    z-index: 5;
+} /* Adds the slash between month and year on mobile */
+
+.year-display {
+    position: absolute;
+    top: -13%;
+    left: 64%;
+    color: hsl(270, 3%, 87%);
+    font-size: 14px;
+    z-index: 5;
+} /* Displays the expiration year in real time on mobile */
+
+.cvc-display {
+    position: absolute;
+    top: -67.5%;
+    left: 540px;
+    color: hsl(270, 3%, 87%);
+    font-size: 14px;
+    z-index: 5;
+} /* Displays the CVC in real time on mobile */
+
+} /* END of mobile media query */

@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper display across different devices -->
+
+  <nav>
+  <link rel="stylesheet" href="style.css"> <!-- Linking the CSS file to the HTML page -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"> <!-- Importing the required font -->
+  </nav>
+
+</head>
+<body>
+  
+  <aside>
+    <img src="./images/bg-main-desktop.png" alt="purple border on the left side of the page" class="side-image"> <!-- Inserts the page sidebar -->
+  </aside>
+  
+  <main> <!-- Main container starts here -->
+    <img src="./images/bg-card-front.png" alt="front side of the card" class="front-card"> <!-- Displays the front side of the card -->
+    <img src="./images/bg-card-back.png" alt="back side of the card" class="back-card"> <!-- Displays the back side of the card -->
+    <img src="./images/card-logo.svg" alt="card logo at the top left corner of the front card" class="card-logo"> <!-- Displays the card logo -->
+
+    <!-- Building the form structure -->
+    <section class="container">
+
+      <form id="form">
+
+        <h6>CARDHOLDER NAME</h6>
+        <input type="text" placeholder="e.g. Jane Appleseed" class="cardholder-name required" id="cardholder" required> <!-- First input field: receives the cardholder's name -->
+        <div class="cardHolder-display">JANE APLESEED</div> <!-- Displays cardholder's name in real time -->
+
+        <h6>CARD NUMBER</h6>
+        <input type="text" placeholder="e.g. 1234 5678 9123 0000" class="card-number required" id="card-number" required oninput="allNumber()"> <!-- Second input field: receives the card number, includes validation to allow only numbers -->
+        <div class="cardNumber-display">0000 0000 0000 0000</div> <!-- Displays card number in real time -->
+        <span class="span-required">Wrong format, numbers only</span> <!-- Error message displayed if invalid data is entered -->
+
+        <div class="titles">
+          <h6>EXP. DATE (MM/YY)</h6> <!-- Labels for month and year input fields -->
+          <h6>CVC</h6> <!-- Label for the CVC field (back of the card) -->
+        </div> <!-- Grouping these elements as they are displayed together -->
+
+        <section class="date-inputs">
+          <!-- <div class="date">  -->
+            <input type="text" placeholder="MM" class="month required" id="month" required oninput="sizeMonth()"> <!-- Month input field, validates correct format -->
+            <div class="month-display">00</div> <!-- Displays month input in real time -->
+            <span class="span-required">Can't be blank</span> <!-- Error message displayed if invalid month is entered -->
+
+            <input type="text" placeholder="YY" class="year required" id="year" required oninput="sizeYear()"> <!-- Year input field, validates correct format -->
+            <div class="year-display">00</div> <!-- Displays year input in real time -->
+            <span class="span-required">Can't be blank</span> <!-- Error message displayed if invalid year is entered -->
+          <!-- </div> Container exclusively for date inputs -->
+
+          <input type="text" placeholder="e.g. 123" class="cvc required" id="cvc" required oninput="sizeCVC()"> <!-- CVC input field, validates correct format -->
+          <div class="cvc-display">000</div> <!-- Displays CVC in real time -->
+          <span class="span-required">Can't be blank</span> <!-- Error message displayed if invalid CVC is entered -->
+        </section> <!-- Groups all date and CVC inputs together -->
+
+        <button type="submit" class="confirm-button" onclick="validarFormulario()">Confirm</button> <!-- Button to submit the form -->
+      </form> <!-- Closing the form -->
+
+      <section class="data"> <!-- Displays all user-entered data in real time -->
+        <div class="cardHolder-display">JANE APLESEED</div>
+        <div class="cardNumber-display">0000 0000 0000 0000</div>
+        <div class="month-display">00</div>
+        <div class="slash">/</div> <!-- Slash separating month and year -->
+        <div class="year-display">00</div>
+        <div class="cvc-display">000</div>
+      </section>
+
+      <section id="thanks-container" class="thanks-container"> <!-- Displays a thank-you message after successful form submission on mobile devices -->
+        <img src="./images/icon-complete.svg" alt="completed icon" class="icon-complete"> <!-- Displays the completion icon -->
+        <h1 class="thank-you">THANK YOU!</h1>
+        <h6 class="addicion">We've added your card details</h6>
+        <button type="submit" class="button">Continue</button>
+      </section>
+    </section>
+  </main> <!-- Closing the main container -->
+
+  <script src="script.js"></script> <!-- Linking the JavaScript file -->
+</body> <!-- Closing the body -->
+</html> <!-- End of HTML document -->
