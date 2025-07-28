@@ -100,8 +100,6 @@ I want to further develop my ability to solve unexpected errors, which often ari
 
 ## Author
 
-## Author
-
 - [LinkedIn](https://www.linkedin.com/in/italosamaral)  
 - Email: italoamaral015@gmail.com  
 - [Instagram](https://www.instagram.com/_italoamaral)
