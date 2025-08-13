@@ -115,11 +115,10 @@ function validarFormulario() {
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    if (window.innerWidth <= 785) {
-        if (validarFormulario()) {
-            document.getElementById("form").style.display = "none";
-            document.getElementById("thanks-container").style.display = "block";
-        } else {
+    if (validarFormulario()) {
+        document.getElementById("form").style.display = "none";
+        document.getElementById("thanks-container").style.display = "block";
+    } else {
             alert("Please, correct the errors before continuing.");
         }
     } else {
@@ -186,3 +185,4 @@ inputCVC.addEventListener("input", () => {
         el.textContent = inputCVC.value || "000";
     });
 });
+
