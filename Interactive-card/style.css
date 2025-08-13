@@ -6,7 +6,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap'); /* Importing the Space Grotesk font */
 
-@media screen and (min-width: 1044px) { /* For desktop devices */
+@media screen and (max-width: 1044px) { /* For desktop devices */
 
 .side-image {
     position: absolute;
@@ -487,5 +487,6 @@
     font-size: 14px;
     z-index: 5;
 } /* Displays the CVC in real time on mobile */
+
 
 } /* END of mobile media query */
