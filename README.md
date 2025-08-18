@@ -30,12 +30,6 @@ The main goal of this challenge was to create a web page using HTML and CSS, whe
 The page was also designed to work seamlessly on both mobile devices and desktop screens, while following accessibility best practices as much as possible.
 
 
-### Screenshot
-
-![Desktop devices](./desktop-screenshot.png) 
-![Mobile devices](./mobile-screenshot.png) 
-
-
 ## My process
 
 ### Built with
